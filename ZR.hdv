@@ -35,8 +35,8 @@
 [GENERAL]
 Rules=0                         // what rules to apply to garage setups (0=none, 1=stock car)
 GarageDisplayFlags=1            // how settings are displayed in garage (add): 1=rear wing, 2=radiator, 4=more gear info
-Mass=850.0                     // all mass except fuel
-Inertia=(1430.0, 1730.0, 370.0) // all inertia except fuel
+Mass=1280.0                     // all mass except fuel
+Inertia=(1630.0, 1930.0, 390.0) // all inertia except fuel
 FuelTankPos=(0.00, 0.14, -0.40) // location of tank relative to center of rear axle in reference plane
 FuelTankMotion=(560.0,0.7)      // simple model of fuel movement in tank (spring rate per kg, critical damping ratio)
 Notes=""
@@ -45,7 +45,7 @@ DamageFile=damage               // .ini file to find physical and graphical dama
 CGHeight=0.2950                 // height of body mass (excluding fuel) above reference plane
 CGRightRange=(0.500, 0.005, 1)  // fraction of weight on left tires
 CGRightSetting=0
-CGRearRange=(0.49, 0.005, 1)   // fraction of weight on rear tires
+CGRearRange=(0.430, 0.005, 1)   // fraction of weight on rear tires
 CGRearSetting=0
 WedgeRange=(0.0, 0.25, 1)       // rounds of wedge
 WedgeSetting=0
@@ -56,7 +56,7 @@ FRUndertray=(-0.75, 0.0, -0.65) // corner offset from center of front axle in re
 RLUndertray=(0.75,  0.0, 0.00)  // corner offset from center of rear axle in reference plane
 RRUndertray=(-0.75, 0.0, 0.00)  // corner offset from center of rear axle in reference plane
 UndertrayParams=(385000.0, 17500.0, 2.0) // spring/damper/friction
-TireBrand=ZR_Tires_lvl3         // must appear before tire compound setting (references *.tbc file)
+TireBrand=ZR_Tires_lvl1         // must appear before tire compound setting (references *.tbc file)
 FrontTireCompoundSetting=0      // compound index within brand
 RearTireCompoundSetting=0       // compound index within brand
 FuelRange=(1.0, 1.0, 60)
@@ -140,13 +140,13 @@ RearAntiSwayBase=0.0             // extra anti-sway from tube twisting
 RearAntiSwayRange=(0.010, 0.002, 20)
 RearAntiSwaySetting=0
 RearAntiSwayRate=(1.11e11, 4.0)  // (base, power), so rate = base * (diameter in meters ^ power)
-FrontToeInRange=(-0.50, 0.1, 16)
-FrontToeInSetting=5
-RearToeInRange=(-0.50, 0.1, 16)
-RearToeInSetting=5
-LeftCasterRange=(3.0, 0.5, 13)    // front-left caster
+FrontToeInRange=(-0.10, 0.05, 1)
+FrontToeInSetting=0
+RearToeInRange=(0.10, 0.05, 1)
+RearToeInSetting=0
+LeftCasterRange=(3.0, 0.1, 1)    // front-left caster
 LeftCasterSetting=0
-RightCasterRange=(3.0, 0.5, 13)   // front-right caster
+RightCasterRange=(3.0, 0.1, 1)   // front-right caster
 RightCasterSetting=0
 LeftTrackBarRange=(0.1778, 0.003175, 1)  // n/a
 LeftTrackBarSetting=0
@@ -174,8 +174,8 @@ OnboardBrakeBias=0                  // whether brake bias is allowed onboard
 
 [ENGINE]
 SpeedLimiter=0                      // Whether a pitlane speed limiter is available
-Normal=ZR_Engine_tuned                     // unrestricted engine
-RestrictorPlate=ZR_Engine_tuned            // restrictor plate engine
+Normal=ZR_Engine                     // unrestricted engine
+RestrictorPlate=ZR_Engine            // restrictor plate engine
 
 [DRIVELINE]
 ClutchInertia=0.01400
@@ -186,11 +186,11 @@ ClutchEngageRate=0.2                // how quickly clutch is engaged with auto-c
 BaulkTorque=1300.0
 AllowManualOverride=0               // whether to allow manual shift overrides when using auto shifting
 SemiAutomatic=0                     // whether throttle and clutch are operated automatically (like an F1 car)
-UpshiftDelay=0.120                  // delay in selecting higher gear (low for semi-automatic, higher for manual)
-UpshiftClutchTime=0.125             // time to ease auto-clutch in AFTER upshift (0.0 for F1 cars)
-DownshiftDelay=0.120                // delay in selecting lower gear (low for semi-automatic, higher for manual)
-DownshiftClutchTime=0.125           // time to ease auto-clutch in AFTER downshift (used to be SemiAutoClutchTime)
-DownshiftBlipThrottle=0.80          // amount of throttle used to blip if controlled by game (instead of player)
+UpshiftDelay=0.160                  // delay in selecting higher gear (low for semi-automatic, higher for manual)
+UpshiftClutchTime=0.225             // time to ease auto-clutch in AFTER upshift (0.0 for F1 cars)
+DownshiftDelay=0.160                // delay in selecting lower gear (low for semi-automatic, higher for manual)
+DownshiftClutchTime=0.225           // time to ease auto-clutch in AFTER downshift (used to be SemiAutoClutchTime)
+DownshiftBlipThrottle=0.70          // amount of throttle used to blip if controlled by game (instead of player)
 WheelDrive=REAR                     // which wheels are driven: REAR, FOUR (even torque split), or FRONT
 GearFile=ZR_gears.ini               // Must come before final/reverse/gear settings!
 AllowGearingChanges=0               // cannot change stock ratios until one buys a tranny upgrade
